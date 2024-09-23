@@ -28,6 +28,26 @@ app.get("/contacts", (req, res) => {
   res.render("contacts");
 });
 
+app.get("/interior", (req, res) => {
+  res.render("services/interior", { title: "Interior Painting Services" });
+});
+app.get("/exterior", (req, res) => {
+  res.render("services/exterior", { title: "Exterior Painting Services" });
+});
+
+app.get("/color-consultation", (req, res) => {
+  res.render("services/color-consultation", {
+    title: "Color Consultation Services",
+  });
+});
+
+app.get("/color-selection", (req, res) => {
+  res.render("services/colorSelection", { title: "Choose Your Colors" });
+});
+
+app.get("/color-mixing", (req, res) => {
+  res.render("services/mixing", { title: "Choose Your Colors" });
+});
 // Start server
 const PORT = process.env.PORT || 2400;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
