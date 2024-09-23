@@ -1,0 +1,94 @@
+<%- include('../partials/header') %>
+
+<section class="color-selection py-5">
+  <div class="container">
+    <h1><%= title %></h1>
+    <p>
+      Select the perfect colors for your space! Explore our color palette and
+      get personalized recommendations.
+    </p>
+
+    <div class="color-palette">
+      <h2>Color Palette</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="color-box" style="background-color: #ff5733">#FF5733</div>
+          <p>Vibrant Orange</p>
+        </div>
+        <div class="col-md-4">
+          <div class="color-box" style="background-color: #33c1ff">#33C1FF</div>
+          <p>Sky Blue</p>
+        </div>
+        <div class="col-md-4">
+          <div class="color-box" style="background-color: #33ff57">#33FF57</div>
+          <p>Fresh Green</p>
+        </div>
+        <div class="col-md-4">
+          <div class="color-box" style="background-color: #ff33b8">#FF33B8</div>
+          <p>Pink Delight</p>
+        </div>
+        <div class="col-md-4">
+          <div class="color-box" style="background-color: #f0e68c">#F0E68C</div>
+          <p>Pale Yellow</p>
+        </div>
+        <div class="col-md-4">
+          <div class="color-box" style="background-color: #8c94f0">#8C94F0</div>
+          <p>Lavender</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tips mt-4">
+      <h2>Tips for Choosing Colors</h2>
+      <ul>
+        <li>Consider the mood you want to create.</li>
+        <li>Look at existing furniture and decor.</li>
+        <li>Test colors in different lighting.</li>
+        <li>Use a color wheel for complementary shades.</li>
+      </ul>
+    </div>
+
+    <div class="form mt-4">
+      <h2>Get Personalized Recommendations</h2>
+      <form action="/contact" method="POST">
+        <div class="mb-3">
+          <label for="name" class="form-label">Your Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Your Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="colors" class="form-label"
+            >Preferred Colors (optional)</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="colors"
+            name="colors"
+            placeholder="e.g., Sky Blue, Fresh Green"
+          />
+        </div>
+        <button type="submit" class="btn btn-warning">
+          Get Recommendations
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>
