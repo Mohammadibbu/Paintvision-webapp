@@ -1,0 +1,46 @@
+<%- include('partials/header') %>
+
+<section class="py-5">
+  <div class="container text-center">
+    <h1 class="mb-4">Upload Your Wall Image</h1>
+    <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+      <div class="mb-3">
+        <input type="file" name="wallImage" accept="image/*" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+
+    <canvas id="canvas" class="mt-4" style="border: 1px solid #000;"></canvas>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('uploadForm');
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  let uploadedImage = new Image();
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    fetch('/upload', {
+      method: 'POST',
+      body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data); // Log the response
+      uploadedImage.src = data.imagePath;
+      uploadedImage.onload = () => {
+        canvas.width = uploadedImage.width;
+        canvas.height = uploadedImage.height;
+        ctx.drawImage(uploadedImage, 0, 0);
+      };
+    })
+    .catch(error => {
+      console.error('Error uploading image:', error);
+    });
+  });
+</script>
+
+<%- include('partials/footer') %>

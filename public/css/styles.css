@@ -84,3 +84,11 @@ body {
   text-align: center;
   margin: 50px 0;
 }
+
+
+.color-box {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  border: 1px solid #000;
+}
